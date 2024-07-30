@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>❤️</title>
+</head>
+<body>
+    <div id="counter">
+        <h3>
+            Time Left Until <br> August 18, 2024
+        </h3>
+    </div>
+    <div id="counter2">
+        <div>
+            <h2 class="box" id="days"></h2>
+            <h2 class="box" id="hours"></h2>
+            <h2 class="box" id="minutes"></h2>
+            <h2 class="box" id="seconds"></h2>
+        </div>
+    </div>
+    <div id="counter3">
+        <img src="https://i.pinimg.com/originals/8d/d3/ed/8dd3ed839851364b5653440ee4a6a5a9.gif" alt="Miss You Shy Bear" id="gif">
+    </div>
+    <div id="button-container">
+        <button onclick="location.href='miss.html'">Check This Out!</button>
+    </div>
+<script>
+    function CountDownTimer() {
+        left_days = document.getElementById("days");
+        left_hours = document.getElementById("hours");
+        left_minutes = document.getElementById("minutes");
+        left_seconds = document.getElementById("seconds");
+    }
+
+    function showRemaining() {
+        const now = new Date();
+        const targetDate = new Date('2024-08-18T00:00:00'); // Target date
+        const timeDiff = targetDate - now;
+
+        if (timeDiff <= 0) {
+            left_days.innerHTML = "0<br><span class=\"small\"> days </span>";
+            left_hours.innerHTML = "0<br><span class=\"small\"> hours</span>";
+            left_minutes.innerHTML = "0<br><span class=\"small\"> mins</span>";
+            left_seconds.innerHTML = "0<br><span class=\"small\"> secs</span>";
+            clearInterval(timer);
+            return;
+        }
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        left_days.innerHTML = days + "<br> <span class=\"small\"> days </span>";
+        left_hours.innerHTML = hours + "<br> <span class=\"small\"> hours</span>";
+        left_minutes.innerHTML = minutes + "<br> <span class=\"small\"> mins</span>";
+        left_seconds.innerHTML = seconds + "<br> <span class=\"small\"> secs</span>";
+    }
+
+    timer = setInterval(showRemaining, 1000);
+    CountDownTimer();
+</script>
+</body>
+</html>
